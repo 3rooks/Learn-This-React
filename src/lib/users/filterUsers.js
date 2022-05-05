@@ -29,7 +29,7 @@ export const sortUsers = (users, sortBy) => {
 			});
 		case SORT_OPTIONS.ROLE:
 			return sortedUsers.sort((a, b) => {
-				if (a.role == b.role) return 0;
+				if (a.role === b.role) return 0;
 				if (a.role === USER_ROLES.TEACHER) return -1;
 				if (a.role === USER_ROLES.STUDENT && b.role === USER_ROLES.OTHER)
 					return -1;
@@ -37,7 +37,7 @@ export const sortUsers = (users, sortBy) => {
 			});
 		case SORT_OPTIONS.ACTIVE:
 			return sortedUsers.sort((a, b) => {
-				if (a.active == b.active) return 0;
+				if (a.active === b.active) return 0;
 				if (a.active && !b.active) return -1;
 				return 1;
 			});

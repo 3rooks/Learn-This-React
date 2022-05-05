@@ -6,7 +6,7 @@ import {
 	sortUsers
 } from '../users/filterUsers';
 
-const fetchUsers = async (setData, setError, setLoading, signal) => {
+const fetchUsers = async (setData, setError, signal) => {
 	try {
 		const res = await fetch('http://localhost:4000/users', { signal });
 		if (res.ok) {
@@ -45,9 +45,11 @@ export const useUsers = (filters) => {
 		error: false,
 		loading: true
 	});
+
 	const setData = (newData) => {
 		setUsers({ data: newData, loading: false, error: false });
 	};
+
 	const setError = () => {
 		setUsers({ data: [], loading: false, error: true });
 	};
