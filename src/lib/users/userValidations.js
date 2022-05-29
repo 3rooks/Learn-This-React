@@ -17,7 +17,7 @@ export const validateUsername = (username) => {
 export const validateName = (name) => {
 	if (!REGEX.NAME.test(name)) return 'Solo letras, espacios y guiones';
 
-	if (name.includes(' ')) return 'No puede tener doble espacio';
+	if (name.includes('  ')) return 'No puede tener doble espacio';
 
 	if (name.includes('--')) return 'No puede tener doble guion';
 

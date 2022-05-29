@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { SORT_OPTIONS } from '../../constants/sortOptions';
 
+const INITIAL_STATE = {
+	search: '',
+	onlyActive: false,
+	sortBy: SORT_OPTIONS.DEFAULT,
+	page: 1,
+	itemsPerPage: 6
+};
 // CUSTOM HOOKS
 export const useFilters = () => {
-	const [filters, setFilters] = useState({
-		search: '',
-		onlyActive: false,
-		sortBy: SORT_OPTIONS.DEFAULT,
-		page: 1,
-		itemsPerPage: 6
-	});
+	const [filters, setFilters] = useState(INITIAL_STATE);
 
 	const setSearch = (search) => {
 		setFilters({
@@ -47,6 +48,7 @@ export const useFilters = () => {
 			page: newPage
 		});
 	};
+	
 	const setItemsPerPage = (newItemsPerPage) => {
 		setFilters({
 			...filters,
@@ -55,12 +57,31 @@ export const useFilters = () => {
 		});
 	};
 
+	const resetFilters = () => {
+		setFilters(INITIAL_STATE);
+	};
+
+	const { search, onlyActive, sortBy, page, itemsPerPage } = filters;
+
 	return {
-		filters,
-		setSearch,
-		setOnlyActive,
-		setSortBy,
-		setPage,
-		setItemsPerPage
+		filters: {
+			search,
+			onlyActive,
+			sortBy
+		},
+		pagination: {
+			page,
+			itemsPerPage
+		},
+		filtersSetters: {
+			setSearch,
+			setOnlyActive,
+			setSortBy
+		},
+		paginationSetters: {
+			setPage,
+			setItemsPerPage
+		},
+		resetFilters
 	};
 };

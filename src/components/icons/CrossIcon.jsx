@@ -1,4 +1,4 @@
-const CrossIcon = ({ props }) => {
+const CrossIcon = (props) => {
 	return (
 		<svg
 			{...props}

@@ -1,16 +1,12 @@
-.form {
-	margin: 2rem 0;
-}
-.row {
+.wrapper {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin-bottom: 1rem;
+	margin-top: 2rem;
 }
-.active {
+
+.itemsPerPage {
 	display: flex;
 	align-items: center;
-}
-.checkbox {
-	margin-right: 0.75rem;
+	gap: 1rem;
 }

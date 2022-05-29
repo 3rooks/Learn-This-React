@@ -8,15 +8,19 @@
 	outline: none;
 	box-shadow: var(--shadow-sm);
 }
+
 .input:focus {
 	box-shadow: var(--shadow-md);
 }
+
 .input::placeholder {
 	color: var(--color-lightgray);
 }
+
 .wrapper {
 	position: relative;
 }
+
 .icon {
 	pointer-events: none;
 	position: absolute;

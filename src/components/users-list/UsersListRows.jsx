@@ -6,7 +6,7 @@ const UsersListRows = ({ users, error, loading }) => {
 	if (!users.length) return <p>No se encontraron usuarios...</p>;
 
 	return users.map((users) => {
-		return <UserRow data={users} key={users.id} />;
+		return <UserRow {...users} key={users.id} />;
 	});
 };
 

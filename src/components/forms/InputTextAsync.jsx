@@ -12,6 +12,7 @@ const InputTextAsync = ({
 	...props
 }) => {
 	const icon = getIcon(loading, success, error);
+
 	return (
 		<label className={`${style.wrapper} ${className || ''}`}>
 			<span className={style.label}>{label}</span>

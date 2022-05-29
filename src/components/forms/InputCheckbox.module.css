@@ -3,6 +3,7 @@
 	opacity: 0;
 	top: -100vh;
 }
+
 .label {
 	cursor: pointer;
 	position: relative;
@@ -14,14 +15,17 @@
 	border-radius: var(--radius-sm);
 	box-shadow: var(--shadow-sm);
 }
+
 .label:focus-within {
 	box-shadow: var(--shadow-md);
 }
+
 .check {
 	user-select: none;
 	height: 1.5rem;
 	width: 1.5rem;
 }
+
 .input:not(:checked) + .check {
 	display: none;
 }

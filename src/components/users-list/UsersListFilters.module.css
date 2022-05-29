@@ -1,11 +1,19 @@
-.wrapper {
+.form {
+	margin: 2rem 0;
+}
+
+.row {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin-top: 2rem;
+	margin-bottom: 1rem;
 }
-.itemsPerPage {
+
+.active {
 	display: flex;
 	align-items: center;
-	gap: 1rem;
+}
+
+.checkbox {
+	margin-right: 0.75rem;
 }

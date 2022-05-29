@@ -5,6 +5,7 @@ button {
 	outline: none;
 	padding: 0 1rem;
 	border: 1px solid;
+	cursor: pointer;
 }
 
 .button:focus {

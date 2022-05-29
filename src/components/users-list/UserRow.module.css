@@ -7,6 +7,7 @@
 	padding: 0.75rem 1.5rem;
 	margin-bottom: 1rem;
 }
+
 .status,
 .role,
 .action {
@@ -14,13 +15,16 @@
 	justify-content: center;
 	align-items: center;
 }
+
 .name {
 	width: 45%;
 }
+
 .status,
 .role {
 	width: 20%;
 }
+
 .action {
 	width: 15%;
 }

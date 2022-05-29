@@ -1,6 +1,7 @@
 .wrapper {
 	position: relative;
 }
+
 .select {
 	cursor: pointer;
 	height: 2.5rem;
@@ -13,9 +14,11 @@
 	box-shadow: var(--shadow=sm);
 	border-radius: var(--radius-sm);
 }
+
 .select:focus {
 	box-shadow: var(--shadow-md);
 }
+
 .arrow {
 	pointer-events: none;
 	position: absolute;

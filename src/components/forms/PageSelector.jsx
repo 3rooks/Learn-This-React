@@ -6,6 +6,7 @@ import style from './PageSelector.module.css';
 const PageSelector = ({ page, setPage, totalPages }) => {
 	const isFirstPage = page === 1;
 	const isLastPage = page === totalPages || totalPages === 0;
+	
 	return (
 		<div className={style.wrapper}>
 			<IconButton
