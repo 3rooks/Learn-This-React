@@ -1,21 +1,22 @@
 import { useState } from 'react';
+import { PAGINATION } from '../../constants/pagination';
 import { SORT_OPTIONS } from '../../constants/sortOptions';
 
 const INITIAL_STATE = {
 	search: '',
 	onlyActive: false,
 	sortBy: SORT_OPTIONS.DEFAULT,
-	page: 1,
-	itemsPerPage: 6
+	page: PAGINATION.DEFAUL_PAGE,
+	itemsPerPage: PAGINATION.DEFAUL_ITEMS_PER_PAGE
 };
-// CUSTOM HOOKS
+
 export const useFilters = () => {
 	const [filters, setFilters] = useState(INITIAL_STATE);
 
 	const setSearch = (search) => {
 		setFilters({
 			...filters,
-			page: 1,
+			page: PAGINATION.DEFAUL_PAGE,
 			search
 		});
 	};
@@ -29,7 +30,7 @@ export const useFilters = () => {
 		setFilters({
 			...filters,
 			sortBy: newSortBy,
-			page: 1,
+			page: PAGINATION.DEFAUL_PAGE,
 			onlyActive
 		});
 	};
@@ -37,7 +38,7 @@ export const useFilters = () => {
 	const setSortBy = (sortBy) => {
 		setFilters({
 			...filters,
-			page: 1,
+			page: PAGINATION.DEFAUL_PAGE,
 			sortBy
 		});
 	};
@@ -48,31 +49,21 @@ export const useFilters = () => {
 			page: newPage
 		});
 	};
-	
+
 	const setItemsPerPage = (newItemsPerPage) => {
 		setFilters({
 			...filters,
-			page: 1,
+			page: PAGINATION.DEFAUL_PAGE,
 			itemsPerPage: newItemsPerPage
 		});
 	};
 
 	const resetFilters = () => {
-		setFilters(INITIAL_STATE);
+		setFilters({ ...INITIAL_STATE });
 	};
 
-	const { search, onlyActive, sortBy, page, itemsPerPage } = filters;
-
 	return {
-		filters: {
-			search,
-			onlyActive,
-			sortBy
-		},
-		pagination: {
-			page,
-			itemsPerPage
-		},
+		filters,
 		filtersSetters: {
 			setSearch,
 			setOnlyActive,

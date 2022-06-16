@@ -15,7 +15,7 @@ export const useSelectedForm = () => {
 	const setEditForm = (user) => {
 		setCurrentForm({ form: USER_FORMS.EDIT, user });
 	};
-	
+
 	const setDeleteForm = (user) => {
 		setCurrentForm({ form: USER_FORMS.DELETE, user });
 	};

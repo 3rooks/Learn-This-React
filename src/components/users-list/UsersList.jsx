@@ -1,44 +1,47 @@
+import { useState } from 'react';
 import { useFilters } from '../../lib/hooks/useFilters';
 import { useUsers } from '../../lib/hooks/useUsers';
-import { getUsersToDisplay } from '../../lib/users/filterUsers';
 import UserFormsProvider from '../providers/UserFormsProvider';
 import UserFormContainer from '../user-forms/UserFormContainer';
 import style from './UsersList.module.css';
 import UsersListFilters from './UsersListFilters';
 import UsersListPagination from './UsersListPagination';
 import UsersListRows from './UsersListRows';
+import UsersListViewSelector from './UsersListViewSelector';
 
 const UsersList = () => {
-	const {
-		filters,
-		pagination,
-		filtersSetters,
-		paginationSetters,
-		resetFilters
-	} = useFilters();
-	const { users, usersError, usersLoading, reloadUsers } = useUsers();
-	const { paginatedUsers, totalPages } = getUsersToDisplay(
-		users,
-		filters,
-		pagination
-	);
+	const [showRowsFormat, setShowRowsFormat] = useState(true);
+	const { filters, filtersSetters, paginationSetters, resetFilters } =
+		useFilters();
+	const { users, totalUsers, usersError, usersLoading } = useUsers(filters);
 
 	return (
 		<div className={style.list}>
 			<h1 className={style.title}>Listado de usuarios</h1>
-			<UserFormsProvider resetFilters={resetFilters} reloadUsers={reloadUsers}>
-				<UsersListFilters {...filters} {...filtersSetters} />
+			<UserFormsProvider resetFilters={resetFilters}>
+				<UsersListFilters
+					search={filters.search}
+					onlyActive={filters.onlyActive}
+					sortBy={filters.sortBy}
+					{...filtersSetters}
+				/>
 				<UserFormContainer />
+				<UsersListViewSelector
+					showRowsFormat={showRowsFormat}
+					setShowRowsFormat={setShowRowsFormat}
+				/>
 				<UsersListRows
-					users={paginatedUsers}
+					users={users}
 					error={usersError}
 					loading={usersLoading}
+					view={showRowsFormat}
 				/>
 			</UserFormsProvider>
 			<UsersListPagination
-				{...pagination}
+				page={filters.page}
+				itemsPerPage={filters.itemsPerPage}
+				totalUsers={totalUsers}
 				{...paginationSetters}
-				totalPages={totalPages}
 			/>
 		</div>
 	);
