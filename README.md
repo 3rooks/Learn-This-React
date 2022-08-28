@@ -14,5 +14,5 @@
 
 - Open in browser
 
-  Project: [http://localhost:3000](http://localhost:3000)
+  Project: [http://localhost:3000](http://localhost:3000)\
   Json-Server: [http://localhost:4000](http://localhost:4000)
