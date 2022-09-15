@@ -1,6 +1,6 @@
 # 'LearnThis' CRUD Project
 
-> I am learning react))
+> I am learning react)
 
 - How To Run The Project
 
