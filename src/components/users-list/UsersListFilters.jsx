@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { FILTER_ACTIONS } from '../../constants/filtersActions';
 import { SORT_OPTIONS } from '../../constants/sortOptions';
 import { USER_FORMS } from '../../constants/userForms';
 import { UsersFormsContext } from '../../lib/contexts/UsersFormsContext';
@@ -19,14 +20,17 @@ const UsersListFilters = ({ search, onlyActive, sortBy, dispatchFilters }) => {
 					placeholder='Buscar...'
 					value={search}
 					onChange={(ev) =>
-						dispatchFilters({ type: 'search_changed', value: ev.target.value })
+						dispatchFilters({
+							type: FILTER_ACTIONS.SEARCH,
+							value: ev.target.value
+						})
 					}
 				/>
 				<Select
 					value={sortBy}
 					onChange={(ev) =>
 						dispatchFilters({
-							type: 'sort_by_changed',
+							type: FILTER_ACTIONS.SORT_BY,
 							value: Number(ev.target.value)
 						})
 					}
@@ -46,7 +50,7 @@ const UsersListFilters = ({ search, onlyActive, sortBy, dispatchFilters }) => {
 						checked={onlyActive}
 						onChange={(ev) =>
 							dispatchFilters({
-								type: 'only_active_changed',
+								type: FILTER_ACTIONS.ONLY_ACTIVE,
 								value: ev.target.checked
 							})
 						}
