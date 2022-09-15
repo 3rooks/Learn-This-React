@@ -1,4 +1,4 @@
-import { FILTER_ACTIONS } from '../../constants/filtersActions';
+import { FILTERS_ACTIONS } from '../../constants/filtersActions';
 import { PAGINATION } from '../../constants/pagination';
 import { SORT_OPTIONS } from '../../constants/sortOptions';
 
@@ -10,17 +10,17 @@ export const FILTERS_INITIAL_STATE = {
 	itemsPerPage: PAGINATION.DEFAUL_ITEMS_PER_PAGE
 };
 
-export const filtersReducer = (state, action) => {
-	switch (action.type) {
-		case FILTER_ACTIONS.SEARCH:
+export const filtersReducer = (state, { type, payload }) => {
+	switch (type) {
+		case FILTERS_ACTIONS.SEARCH:
 			return {
 				...state,
 				page: PAGINATION.DEFAUL_PAGE,
-				search: action.value
+				search: payload
 			};
-		case FILTER_ACTIONS.ONLY_ACTIVE: {
+		case FILTERS_ACTIONS.ONLY_ACTIVE: {
 			const newSortBy =
-				action.value && state.sortBy === SORT_OPTIONS.ACTIVE
+				payload && state.sortBy === SORT_OPTIONS.ACTIVE
 					? SORT_OPTIONS.DEFAULT
 					: state.sortBy;
 
@@ -28,27 +28,27 @@ export const filtersReducer = (state, action) => {
 				...state,
 				sortBy: newSortBy,
 				page: PAGINATION.DEFAUL_PAGE,
-				onlyActive: action.value
+				onlyActive: payload
 			};
 		}
-		case FILTER_ACTIONS.SORT_BY:
+		case FILTERS_ACTIONS.SORT_BY:
 			return {
 				...state,
 				page: PAGINATION.DEFAUL_PAGE,
-				sortBy: action.value
+				sortBy: payload
 			};
-		case FILTER_ACTIONS.PAGE:
+		case FILTERS_ACTIONS.PAGE:
 			return {
 				...state,
-				page: action.value
+				page: payload
 			};
-		case FILTER_ACTIONS.ITEMS_PER_PAGE:
+		case FILTERS_ACTIONS.ITEMS_PER_PAGE:
 			return {
 				...state,
 				page: PAGINATION.DEFAUL_PAGE,
-				itemsPerPage: action.value
+				itemsPerPage: payload
 			};
-		case FILTER_ACTIONS.RESET:
+		case FILTERS_ACTIONS.RESET:
 			return { ...FILTERS_INITIAL_STATE };
 
 		default:

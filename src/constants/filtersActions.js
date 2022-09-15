@@ -1,4 +1,4 @@
-export const FILTER_ACTIONS = {
+export const FILTERS_ACTIONS = {
 	SEARCH: 'search_changed',
 	ONLY_ACTIVE: 'only_active_changed',
 	SORT_BY: 'sort_by_changed',
