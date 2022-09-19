@@ -34,10 +34,3 @@ export const usernameErrorChanged = (error) => {
 		payload: error
 	};
 };
-
-export const replace = (newState) => {
-	return {
-		type: EDIT_FORM_ACTIONS.REPLACE,
-		payload: newState
-	};
-};

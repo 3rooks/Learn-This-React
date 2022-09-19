@@ -11,8 +11,8 @@ const UsersListRows = ({ users, error, loading, view }) => {
 
 	return (
 		<div className={style.container}>
-			{users.map((users) => {
-				return <UserComponent {...users} key={users.id} />;
+			{users.map((user) => {
+				return <UserComponent key={user.id} user={user} />;
 			})}
 		</div>
 	);
