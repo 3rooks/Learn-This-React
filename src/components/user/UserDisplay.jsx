@@ -1,10 +1,17 @@
 import style from './UserDisplay.module.css';
 
-const UserDisplay = ({ name, username }) => {
+const UserDisplay = ({ name, username, picture }) => {
 	return (
 		<div className={style.wrapper}>
-			<span>{name}</span>
-			<span className={style.username}>@{username}</span>
+			<img
+				className={style.picture}
+				src={picture || '/user-pic.svg'}
+				alt={`Foto de ${name}`}
+			/>
+			<div className={style.display}>
+				<span>{name}</span>
+				<span className={style.username}>@{username}</span>
+			</div>
 		</div>
 	);
 };
