@@ -43,7 +43,7 @@ const UserPicForm = ({ closeModal, currentUser }) => {
 			/>
 			<Button
 				className={style.button}
-				disabled={isSubmitting || !preview || preview.src}
+				disabled={isSubmitting || !preview || !preview.src}
 				onClick={() =>
 					handleClick(
 						currentUser.id,
