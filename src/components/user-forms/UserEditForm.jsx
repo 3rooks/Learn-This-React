@@ -8,6 +8,7 @@ import {
 } from '../../lib/actions/editFormActions';
 import { updateUser } from '../../lib/api/usersApi';
 import { UsersFormsContext } from '../../lib/contexts/UsersFormsContext';
+import { alertBox } from '../../lib/events/alertEvents';
 import { useEditForm } from '../../lib/hooks/useEditForm';
 import Button from '../buttons/Button';
 import InputCheckbox from '../forms/InputCheckbox';
@@ -101,10 +102,11 @@ const handleSubmit = async (
 	const success = await updateUser(user);
 	if (success) {
 		onSuccess();
-		closeModal();
+		alertBox.success('Usuario modificado con exito');
 	} else {
-		setIsSubmitting(false);
+		alertBox.error('Error al modificar al usuario');
 	}
+	closeModal();
 };
 
 export default UserEditForm;

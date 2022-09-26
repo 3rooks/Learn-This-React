@@ -6,6 +6,7 @@ import {
 } from '../../lib/actions/createFormActions';
 import { createUser } from '../../lib/api/usersApi';
 import { UsersFormsContext } from '../../lib/contexts/UsersFormsContext';
+import { alertBox } from '../../lib/events/alertEvents';
 import { useCreateForm } from '../../lib/hooks/useCreateForm';
 import Button from '../buttons/Button';
 import InputCheckbox from '../forms/InputCheckbox';
@@ -78,10 +79,11 @@ const handleSubmit = async (
 	const success = await createUser(user);
 	if (success) {
 		onSuccess();
-		closeModal();
+		alertBox.success('Usuario creado con exito');
 	} else {
-		setIsSubmitting(false);
+		alertBox.error('Error al crear usuario');
 	}
+	closeModal();
 };
 
 export default UserCreateForm;
